@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { AuthContext } from '../contexts/auth'
+
 import { Link } from 'react-router-dom'
 
 import Logo from '../../public/logo.svg'
@@ -11,6 +13,13 @@ export function SignIn(){
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  const { signIn, loadingAuth } = useContext(AuthContext)
+
+  async function handleSignIn(e){
+    e.preventDefault()
+    await signIn(email, password)
+  }
+
   return(
     <aside className={styles.sidebar}>
       <div className={styles.profile}>
@@ -19,7 +28,7 @@ export function SignIn(){
         <span>Entrar</span>
       </div>
 
-      <form action="">
+      <form onSubmit={handleSignIn}>
         <input 
           type="email" 
           name='email' 
@@ -37,7 +46,7 @@ export function SignIn(){
         />
         
         <div className={styles.line}></div>
-          <Button name='Acessar' />
+        <Button name={ loadingAuth ? 'Carregando...' : 'Acessar' }/>
         
       </form>
 

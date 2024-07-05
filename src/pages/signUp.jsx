@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { AuthContext } from '../contexts/auth'
 import { Link } from 'react-router-dom'
 
 import Logo from '../../public/logo.svg'
@@ -12,6 +13,16 @@ export function SignUp(){
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  const { signUp, loadingAuth } = useContext(AuthContext)
+
+  async function handleSubmit(e){
+    e.preventDefault()
+
+    if(name != '' && email != '' && password != ''){
+      await signUp(name, email, password)
+    }
+  }
+
   return(
     <aside className={styles.sidebar}>
       <div className={styles.profile}>
@@ -20,7 +31,7 @@ export function SignUp(){
         <span>Cadastar nova conta</span>
       </div>
 
-      <form action="">
+      <form onSubmit={handleSubmit}>
         <input 
           type="text" 
           name='name' 
@@ -46,7 +57,7 @@ export function SignUp(){
         />
         
         <div className={styles.line}></div>
-          <Button name='Cadastrar' />
+          <Button name={loadingAuth ? 'Carregando...' : 'Cadastrar'} />
         
       </form>
 
