@@ -1,0 +1,46 @@
+.withFill{
+  min-width: 90%;
+  max-width: 24rem;
+  
+  margin: 0 auto;
+  margin-top: 2rem;
+  padding: 1rem 6rem;
+
+  display: block;
+  border-radius: 8px;
+  border: 0;
+  background: var(--green-500);
+  color: var(--white);
+  font-weight: bold;
+  cursor: pointer;
+
+  transition: background-color 0.1s;
+}
+
+.withFill:hover{
+  background: var(--green-300);
+}
+
+.noFill{
+  min-width: 90%;
+  max-width: 24rem;
+  margin: 0 auto;
+  margin-top: 1rem;
+
+  display: block;
+  padding: 1rem 6rem;
+  border-radius: 8px;
+  border: 0;
+  background: transparent;
+  color: var(--green-500);
+  border: 1px solid var(--green-500);
+  font-weight: bold;
+  cursor: pointer;
+
+  transition: color 0.1s, background-color 0.1s;
+}
+
+.noFill:hover{
+  background: var(--green-500);
+  color: var(--white);
+}
