@@ -9,7 +9,7 @@
   display: block;
   border-radius: 8px;
   border: 0;
-  background: var(--green-500);
+  background: var(--primary-500);
   color: var(--white);
   font-weight: bold;
   cursor: pointer;
@@ -18,7 +18,7 @@
 }
 
 .withFill:hover{
-  background: var(--green-300);
+  background: var(--primary-300);
 }
 
 .noFill{
@@ -32,8 +32,8 @@
   border-radius: 8px;
   border: 0;
   background: transparent;
-  color: var(--green-500);
-  border: 1px solid var(--green-500);
+  color: var(--primary-500);
+  border: 1px solid var(--primary-500);
   font-weight: bold;
   cursor: pointer;
 
@@ -41,6 +41,6 @@
 }
 
 .noFill:hover{
-  background: var(--green-500);
+  background: var(--primary-500);
   color: var(--white);
 }
