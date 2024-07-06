@@ -1,7 +1,7 @@
 .sidebar{
   max-width: 36rem;
   margin: 9rem auto;
-  padding: 3rem 1rem;
+  padding: 3rem 3rem;
 
   background: var(--gray-800);
   border-radius: 8px;
@@ -35,14 +35,14 @@
 }
 
 .sidebar form input {
-  width: 90%;
+  width: 100%;
   display: block;
   margin: 0 auto;
   background: var(--gray-700);
   border: 0;
   height: 3rem;
   padding: 1rem;
-  border-radius: 8px;
+  border-radius: 4px;
   color: var(--gray-100);
   line-height: 1.4;
   margin-top: 1rem;
@@ -56,7 +56,7 @@
 
 .line{
   border-top: 1px solid var(--gray-600);
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   margin-top: 2rem;
 }

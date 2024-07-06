@@ -1,0 +1,38 @@
+.content{
+  margin-left: 200px;
+  padding: 1px 16px;
+}
+
+.container{
+  background-color: var(--gray-700);
+  border-radius: 4px;
+  padding: .8rem;
+  margin-bottom: 1rem;
+}
+
+.forms input{
+  width: 100%;
+  max-width: 28rem;
+  display: block;
+  background: var(--gray-900);
+  border: 0;
+  height: 3rem;
+  padding: 1rem;
+  border-radius: 4px;
+  color: var(--gray-100);
+  line-height: 1.4;
+  margin-top: 1rem;
+
+  display: flex;
+}
+
+.saveBtn{
+  width: 100%;
+  max-width: 28rem;
+}
+
+@media(max-width: 768px){
+  .content{
+    margin-left: 0;
+  } 
+}

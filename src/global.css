@@ -10,6 +10,7 @@
 
   --primary-300: #F69051;
   --primary-500: #F5853F;
+  --primary-500-opacity: rgba(245, 133, 63, 0.2);
 
   --red-500: #f75a68
 }
@@ -36,3 +37,4 @@ body, input, textarea, button {
   font-weight: 400;
   font-size: 1rem;
 }
+

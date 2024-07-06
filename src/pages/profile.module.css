@@ -1,0 +1,101 @@
+.content{
+  margin-left: 200px;
+  padding: 1px 16px;
+}
+
+.container{
+  /* display: block; */
+  /* align-items: center; */
+  background-color: var(--gray-700);
+  border-radius: 4px;
+  padding: .8rem;
+  margin-bottom: 1rem;
+}
+
+.labelAvatar{
+  width: 280px;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.labelAvatar input{
+  display: none;
+}
+
+.labelAvatar span{
+  z-index: 99;
+  position: absolute;
+  opacity: .7;
+
+  transition: all .5s;
+}
+
+.labelAvatar span:hover{
+  opacity: 1;
+  transform: scale(1.4);
+}
+
+.formProfile img{
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.formProfile label{
+  margin-bottom: .5rem;
+  font-size: 1.4rem;
+}
+
+.forms input{
+  width: 100%;
+  max-width: 28rem;
+  display: block;
+  background: var(--gray-900);
+  border: 0;
+  height: 3rem;
+  padding: 1rem;
+  border-radius: 4px;
+  color: var(--gray-100);
+  line-height: 1.4;
+  margin-top: 1rem;
+
+  display: flex;
+}
+
+.forms input:disabled{
+  cursor: not-allowed;
+}
+
+.saveBtn{
+  width: 100%;
+  max-width: 28rem;
+}
+
+.logoutBtn{
+  max-width: 16rem;
+  padding: 1rem 2rem;
+
+  display: block;
+  border-radius: 4px;
+  border: 0;
+  background: var(--red-500);
+  color: var(--white);
+  font-weight: bold;
+  cursor: pointer;
+
+  transition: background-color 0.1s;
+}
+
+.withFill:hover{
+  background: var(--primary-300);
+}
+
+@media(max-width: 768px){
+  .content{
+    margin-left: 0;
+  } 
+}

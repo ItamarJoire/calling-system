@@ -1,0 +1,10 @@
+.title{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 1rem 0;
+  background: var(--gray-700);
+  padding: .8rem;
+  border-radius: 4px;
+  gap: 8px
+}
