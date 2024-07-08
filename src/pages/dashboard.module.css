@@ -1,0 +1,132 @@
+.content{
+  margin-left: 200px;
+  padding: 1px 16px;
+}
+
+.content .newCall{
+  width: 12rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem 1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  float: right;
+  
+  text-decoration: none;
+  border-radius: 4px;
+  border: 0;
+  background: var(--primary-500);
+  color: var(--white);
+  font-weight: bold;
+  cursor: pointer;
+
+  transition: background-color 0.1s;
+}
+
+.content .newCall:hover{
+  background: var(--primary-300);
+}
+
+.container{
+  background-color: var(--gray-700);
+  border-radius: 4px;
+  padding: .8rem;
+ 
+  margin-bottom: 1rem;
+  clear: both;
+}
+
+table{
+  border: 1px solid #ccc;
+  margin: 0;
+  padding: 0;
+  border-radius: 8px;
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+table caption{
+  font-size: 1.5rem;
+  margin: .5rem 0 0.75rem;
+}
+
+table tr{
+  background-color: var(--gray-700);
+  border: 8px solid var(--gray-900);
+  padding: 1rem;
+}
+
+table th, table td{
+  padding: .8rem;
+  text-align: center;
+}
+
+table th{
+  font-size: .7rem;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+}
+
+table td .action{
+  border: 0;
+  padding: 5px;
+  border: 4px;
+  display: inline-block;
+  margin-right: .4rem;
+}
+
+table td .badge{
+  padding: .3rem;
+  border-radius: 4px;
+  color: (--white);
+}
+
+@media(max-width: 768px){
+  .content{
+    margin-left: 0;
+  } 
+}
+
+@media(max-width: 600px){
+  table{
+    border: 0;
+  }
+
+  table caption{
+    font-size: 1.3rem;
+  }
+
+  table thead{
+   border: none;
+   height: 1px;
+   margin: -1px;
+   overflow: hidden;
+   padding: 0;
+   position: absolute;
+   width: 1rem;
+  }
+
+  table tr{
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .6rem;
+  }
+
+  table td{
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8rem;
+    text-align: right;
+  }
+
+  table td::before{
+    content: attr(dataLabel);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
