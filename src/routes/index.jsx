@@ -1,8 +1,15 @@
 import { Routes, Route } from 'react-router-dom'
-
-import { SignIn, SignUp, Dashboard, Profile, Customers } from '../pages'
-
 import { Private } from './private'
+
+import { 
+  SignIn, 
+  SignUp, 
+  Dashboard, 
+  Profile, 
+  Customers, 
+  New 
+} from '../pages'
+
 
 export function RoutesApp() {
   return (
@@ -13,6 +20,7 @@ export function RoutesApp() {
       <Route path="/dashboard" element={<Private><Dashboard /></Private>} />
       <Route path="/profile" element={<Private><Profile /></Private>} />
       <Route path="/customers" element={<Private><Customers /></Private>} />
+      <Route path="/new" element={<Private><New /></Private>} />
     </Routes>
   )
 }
