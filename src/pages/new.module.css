@@ -1,16 +1,17 @@
-.content{
+.content {
   margin-left: 200px;
   padding: 1px 16px;
 }
 
-.container{
+.container {
   background-color: var(--gray-700);
   border-radius: 4px;
-  padding: .8rem;
+  padding: 0.8rem;
   margin-bottom: 1rem;
 }
 
-.forms select, .forms textarea{
+.forms select,
+.forms textarea {
   width: 100%;
   max-width: 28rem;
   display: block;
@@ -21,44 +22,44 @@
   border-radius: 4px;
   color: var(--gray-100);
   line-height: 1.4;
-  margin-top: .4rem;
+  margin-top: 0.4rem;
 
   display: flex;
 }
 
-.forms label{
+.forms label {
   margin-top: 2rem;
   display: block;
   font-weight: 600;
 }
 
-.forms input[type="radio"]{
+.forms input[type='radio'] {
   margin: 15px 0;
 }
 
-.forms input[type="radio"]:not(:first-child){
+.forms input[type='radio']:not(:first-child) {
   margin-left: 15px;
 }
 
-.status span{
-  padding-left: .5rem;
+.status span {
+  padding-left: 0.5rem;
   font-size: 1rem;
+  color: ;
 }
 
-.registerBtn{
+.registerBtn {
   width: 100%;
   max-width: 28rem;
 }
 
-.forms textarea{
+.forms textarea {
   overflow-y: hidden;
   height: 200px;
   resize: none;
-
 }
 
-@media(max-width: 768px){
-  .content{
+@media (max-width: 768px) {
+  .content {
     margin-left: 0;
-  } 
+  }
 }

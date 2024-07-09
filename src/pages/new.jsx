@@ -1,9 +1,11 @@
 
 import { useState, useEffect, useContext } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
+
 import { AuthContext } from '../contexts/auth'
 
 import { db } from '../services/firebaseConnection'
-import { collection, getDocs, getDoc, doc, addDoc } from 'firebase/firestore'
+import { collection, getDocs, getDoc, doc, addDoc, updateDoc } from 'firebase/firestore'
 
 import { toast } from 'react-toastify'
 
@@ -16,7 +18,10 @@ import styles from './new.module.css'
 const listRef = collection(db, "customers")
 
 export function New(){
+  const navigate = useNavigate()
+
   const { user } = useContext(AuthContext)
+  const { id } = useParams()
 
   const [customers, setCustomers] = useState([])
   const [loadCustomer, setLoadCustomer] = useState(true)
@@ -25,6 +30,7 @@ export function New(){
   const [complemento, setComplemento] = useState('')
   const [assunto, setAssunto] = useState('Suporte')
   const [status, setStatus] = useState('Aberto')
+  const [idCustomer, setIdConstumer] = useState(false)
 
   useEffect(() => {
     async function loadCustomers(){
@@ -48,6 +54,10 @@ export function New(){
 
         setCustomers(list)
         setLoadCustomer(false)
+
+        if(id){
+          loadId(list)
+        }
       })
       .catch((error) => {
         console.log("Error ao buscar os clientes", error)
@@ -57,7 +67,25 @@ export function New(){
     }
 
     loadCustomers()
-  }, [])
+  }, [id])
+
+  async function loadId(list){
+    const docRef = doc(db, "called", id)
+    await getDoc(docRef)
+    .then((snapshot) => {
+      setAssunto(snapshot.data().assunto)
+      setStatus(snapshot.data().status)
+      setComplemento(snapshot.data().complemento)
+
+      let index = list.findIndex(item => item.id === snapshot.data().clienteId)
+      setCustomerSelected(index)
+      setIdConstumer(true)
+    })
+    .catch(error => {
+      console.log(error)
+      setIdConstumer(false)
+    })
+  }
 
   function handleOptionChange(e){
     setStatus(e.target.value)
@@ -75,6 +103,31 @@ export function New(){
 
   async function handleRegister(e){
     e.preventDefault()
+
+    if(idCustomer){
+      const docRef = doc(db, "called", id)
+      await updateDoc(docRef, {
+        created: new Date(),
+        cliente: customers[customerSelected].nomeFantasia,
+        clienteId: customers[customerSelected].id,
+        assunto: assunto,
+        complemento: complemento,
+        status: status,
+        userId: user.uid
+      })
+      .then(() => {
+        toast.info("Chamado atualizado com sucesso!", { theme: 'dark' })
+        setCustomerSelected(0)
+        setComplemento('')
+        navigate('/dashboard')
+      })
+      .catch(error => {
+        toast.error("Erro ao atualizar o chamado!", { theme: 'dark' })
+        console.log(error)
+      })
+
+      return
+    }
 
     await addDoc(collection(db, "called"), {
       created: new Date(),
@@ -100,7 +153,7 @@ export function New(){
     <div>
       <Header />
       <div className={styles.content}>
-        <Title name='Novo chamado'>
+        <Title name={ id ? 'Editando chamado' : 'Novo chamado'}>
           <PlusCircle size={25}/>
         </Title>
 
@@ -126,7 +179,7 @@ export function New(){
               <select value={assunto} onChange={handleChangeSelect}>
                 <option value='Suporte'>Suporte</option>
                 <option value='Visita técnica'>Visita técnica</option>
-                <option value='Financeito'>Financeiro</option>
+                <option value='Financeiro'>Financeiro</option>
               </select>
 
               <label>Status</label>

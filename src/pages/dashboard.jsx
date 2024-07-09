@@ -2,14 +2,16 @@ import { useContext, useEffect, useState } from "react"
 import { AuthContext } from "../contexts/auth"
 
 import { db } from '../services/firebaseConnection'
-import { collection, getDocs, orderBy, limit, startAfter, query } from 'firebase/firestore'
+import { collection, getDocs, orderBy, limit, startAfter, query, updateDoc } from 'firebase/firestore'
 
-import { Header, Title } from "../components"
+import { Header, Title, Modal } from "../components"
 
 import styles from './dashboard.module.css'
 
 import { MessengerLogo, Plus, MagnifyingGlass, PencilSimple } from "@phosphor-icons/react"
 import { Link } from "react-router-dom"
+
+import { format } from "date-fns"
 
 const listRef = collection(db, "called")
 
@@ -22,6 +24,9 @@ export function Dashboard(){
   const [isEmpty, setIsEmpty] = useState(false)
   const [lastDocs, setLastDocs] = useState()
   const [loadingMore, setLoadingMore] = useState(false)
+
+  const [showPostModal, setShowPostModal] = useState(false)
+  const [detail, setDetail] = useState()
 
   useEffect(() => {
     async function loadChamados(){
@@ -53,7 +58,7 @@ export function Dashboard(){
           cliente: doc.data().cliente,
           clienteId: doc.data().clienteId,
           created: doc.data().created,
-          // createdFormat: format(doc.data().created.toDate(), 'dd/MM/yyyy'),
+          createdFormat: format(doc.data().created.toDate(), 'dd/MM/yyyy'),
           status: doc.data().status,
           complemento: doc.data().complemento
         })
@@ -76,6 +81,11 @@ export function Dashboard(){
     const q = query(listRef, orderBy('created', 'desc'), startAfter(lastDocs), limit(5))
     const querySnapshot = await getDocs(q)
     await updateState(querySnapshot)
+  }
+
+  function toogleModal(item){
+    setShowPostModal(!showPostModal)
+    setDetail(item)
   }
 
   // if(loading){
@@ -142,14 +152,14 @@ export function Dashboard(){
                             {item.status}
                           </span>
                         </td>
-                        <td dataLabel="Cadastrado">12/12/12</td>
+                        <td dataLabel="Cadastrado">{item.createdFormat}</td>
                         <td dataLabel="#">
-                          <button className={styles.action} style={{ background: '#3583f6' }}>
+                          <button className={styles.action} style={{ background: '#3583f6' }} onClick={() => toogleModal(item)}>
                             <MagnifyingGlass color="#fff"/>
                           </button>
-                          <button className={styles.action} style={{ background: '#f6a935' }}>
+                          <Link to={`/new/${item.id}`} className={styles.action} style={{ background: '#f6a935' }}>
                             <PencilSimple color="#fff"/>
-                          </button>
+                          </Link>
                         </td>
                       </tr>
                     )
@@ -163,6 +173,14 @@ export function Dashboard(){
           {!loadingMore && !isEmpty && <button onClick={handleMore} className={styles.moreBtn}>Buscar mais</button>}
         </>
       </div>
+
+      {showPostModal && (
+        <Modal 
+          conteudo={detail}
+          close={() => setShowPostModal(!showPostModal)}
+        />
+      )}
+
     </div>
   )
 }

@@ -1,0 +1,49 @@
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 99;
+}
+
+.modal .row {
+  margin-top: 1.6rem;
+  display: flex;
+}
+
+.modal p {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-right: 1rem;
+}
+
+.modal span {
+  font-weight: normal;
+}
+
+.container {
+  position: fixed;
+  max-width: 600px;
+  top: 20%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+
+  background-color: var(--gray-700);
+  border-radius: 4px;
+  padding: 3rem 2rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+
+  margin-bottom: 1rem;
+}
+
+.close {
+  background: transparent;
+  border: 0;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.close:hover {
+  cursor: pointer;
+}

@@ -15,6 +15,8 @@ export function Header(){
       <div className={styles.cover}>
         <img width={90} height={90} src={user.avatarUrl === null ? AvatarImg : user.avatarUrl} alt="" />
       </div>
+      
+      <div className={styles.line}></div>
 
       <div className={styles.links}>
         <div className={styles.link}>

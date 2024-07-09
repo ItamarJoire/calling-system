@@ -109,7 +109,7 @@ table td .action {
 table td .badge {
   padding: 0.3rem;
   border-radius: 4px;
-  color: (--white);
+  color: var(--gray-900);
 }
 
 .moreBtn {
