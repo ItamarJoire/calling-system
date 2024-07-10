@@ -7,6 +7,7 @@ import Logo from '../../public/logo.svg'
 import { Button } from '../components'
 
 import styles from './signIn.module.css'
+import { toast } from 'react-toastify'
 
 export function SignUp(){
   const [name, setName] = useState('')
@@ -20,6 +21,12 @@ export function SignUp(){
 
     if(name != '' && email != '' && password != ''){
       await signUp(name, email, password)
+    }
+
+    if(name.length && email.length && password.length >= 6){
+      await signUp(name, email, password)
+    }else{
+      toast.error("Senha tem que ser no mínimo 6 caracteres", { theme: 'dark' })
     }
   }
 
