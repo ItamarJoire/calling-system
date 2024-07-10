@@ -1,4 +1,4 @@
-.sidebar{
+.sidebar {
   max-width: 36rem;
   margin: 9rem auto;
   padding: 3rem 1rem;
@@ -8,7 +8,7 @@
   overflow: hidden;
 }
 
-.profile{
+.profile {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,14 +16,12 @@
   text-align: center;
 }
 
-.profile img{
-  width: 5rem;
+.profile img {
+  width: 1.4rem;
 }
 
 .profile strong {
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  color: var(--gray-100);
+  color: var(--gray-300);
   line-height: 1;
   font-size: 1.3rem;
 }
@@ -50,35 +48,35 @@
   display: flex;
 }
 
-.sidebar form input::placeholder{
+.sidebar form input::placeholder {
   color: var(--gray-400);
 }
 
-.line{
+.line {
   border-top: 1px solid var(--gray-600);
   width: 90%;
   margin: 0 auto;
   margin-top: 2rem;
 }
 
-.link{
+.link {
   margin-top: 1rem;
   text-align: center;
 }
 
-.link a{
+.link a {
   text-decoration: none;
   color: var(--primary-500);
 
   transition: opacity 0.1s;
 }
 
-.link a:hover{
-  opacity: .6;
+.link a:hover {
+  opacity: 0.6;
 }
 
-@media (max-width: 768px){
-  .sidebar{
+@media (max-width: 768px) {
+  .sidebar {
     max-width: 90%;
   }
 }

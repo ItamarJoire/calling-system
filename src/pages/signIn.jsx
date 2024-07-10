@@ -23,8 +23,10 @@ export function SignIn(){
   return(
     <aside className={styles.sidebar}>
       <div className={styles.profile}>
-        <img src={Logo} alt="" />
-        <strong>Sistema de chamados</strong>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px', marginBottom: '3rem'}}>
+          <img src={Logo} alt="" />
+          <strong>Sistema de chamados</strong>
+        </div>
         <span>Entrar</span>
       </div>
 
