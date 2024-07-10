@@ -1,8 +1,40 @@
-# React + Vite
+<h1 align="center"><img src="https://github.com/ItamarJoire/calling-system/blob/master/public/logo.svg" align="center" width="50" height="50"> Sistema de chamados </h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+&nbsp;
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Projeto  :computer: 
+<p>Sistema de chamados onde você pode se autenticar, cadastrar clientes e abrir chamados.</p>
+
+
+&nbsp;
+  
+## Layout :bookmark:
+  <img src="https://github.com/ItamarJoire/calling-system/blob/master/public/cover.png" >
+  
+  
+&nbsp;
+  
+
+
+## Instruções para o iniciar :rocket:
+
+
+Para instalar as dependências execute o comando: `npm install`
+
+Crie um arquivo `.env` na raiz do seu projeto e configure a conexão com o firebase 
+
+Para dar start na aplicação web execute: `npm run dev`
+
+
+
+&nbsp;
+
+## Tecnologias
+  
+* [ReactJs](https://react.dev/)
+* [Vite](https://vitejs.dev/)
+* [Phosphoricons](https://phosphoricons.com/)
+* [Firebase](https://firebase.google.com/?hl=pt)
+
+
