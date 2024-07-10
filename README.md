@@ -35,6 +35,7 @@ Para dar start na aplicação web execute: `npm run dev`
 * [ReactJs](https://react.dev/)
 * [Vite](https://vitejs.dev/)
 * [Phosphoricons](https://phosphoricons.com/)
+* [React-Toastify](https://fkhadra.github.io/react-toastify/introduction/)
 * [Firebase](https://firebase.google.com/?hl=pt)
 
 
