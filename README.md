@@ -1,4 +1,4 @@
-<h1 align="center"><img src="https://github.com/ItamarJoire/calling-system/blob/master/public/logo.svg" align="center" width="50" height="50"> Sistema de chamados </h1>
+<h1 align="center"><img src="https://github.com/ItamarJoire/calling-system/blob/master/public/logo.svg" align="center" width="30" height="30"> Sistema de chamados </h1>
 
 
 &nbsp;
