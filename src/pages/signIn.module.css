@@ -32,6 +32,14 @@
   margin-bottom: 1rem;
 }
 
+.logo {
+  display: flex;
+  justify-contenter: center;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 3rem;
+}
+
 .sidebar form input {
   width: 100%;
   display: block;
@@ -78,5 +86,11 @@
 @media (max-width: 768px) {
   .sidebar {
     max-width: 90%;
+    padding: 3rem 1.4rem;
+  }
+
+  .logo {
+    flex-direction: column;
+    gap: 16px;
   }
 }
